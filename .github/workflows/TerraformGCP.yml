@@ -9,11 +9,10 @@ on:
       - main
   workflow_dispatch:
 
-
 env:
   GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   BUCKET_NAME: itsprouttfstate
-  SA_NAME: my-sa-maxim@itspoutproject.iam.gserviceaccount.com
+  SA_NAME: maximus-sa@itspoutproject.iam.gserviceaccount.com
   CLUSTER_NAME: maxsprout-clusterk8s
   REGION: us-central1
 

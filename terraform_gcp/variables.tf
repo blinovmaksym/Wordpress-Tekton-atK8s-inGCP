@@ -17,7 +17,7 @@ variable "sa_name" {
 }
 
 variable "sa_account" {
-  default = "my-sa-maxim@itspoutproject.iam.gserviceaccount.com"
+  default = "maximus-sa@itspoutproject.iam.gserviceaccount.com"
 }
 
 variable "local_ip_range" {
