@@ -1,5 +1,5 @@
 variable "def_name" {
-  default = "mondyspout"
+  default = "maxsprout"
 }
 
 variable "project_id" {}
@@ -17,7 +17,7 @@ variable "sa_name" {
 }
 
 variable "sa_account" {
-  default = "git-490@tidy-vent-384809.iam.gserviceaccount.com"
+  default = "tf-gke-gkeitsprout-9vvf@itspoutproject.iam.gserviceaccount.com"
 }
 
 variable "local_ip_range" {
