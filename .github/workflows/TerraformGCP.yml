@@ -24,6 +24,7 @@ jobs:
         shell: bash
         working-directory: ./terraform_gcp
 
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
