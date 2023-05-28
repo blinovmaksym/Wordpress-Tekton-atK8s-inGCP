@@ -1,10 +1,10 @@
-name: Terraform deploy kubernetes cluster
+name: Terraform deploy kubernetes cluster with Tekton
 
 on:
   push:
     paths:
       - 'terraform_gcp/**'
-      - '.github/workflows/TerraformGCP.yml'
+      - '.github/workflows/TerraformGCPTekton.yml'
     branches:
       - main
   workflow_dispatch:
