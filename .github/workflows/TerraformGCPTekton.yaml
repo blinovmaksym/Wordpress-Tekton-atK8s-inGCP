@@ -1,13 +1,13 @@
-# name: Terraform deploy kubernetes cluster
+name: Terraform deploy kubernetes cluster
 
-# on:
-#   push:
-#     paths:
-#       - 'terraform_gcp/**'
-#       - '.github/workflows/TerraformGCP.yml'
-#     branches:
-#       - main
-#   workflow_dispatch:
+on:
+  push:
+    paths:
+      - 'terraform_gcp/**'
+      - '.github/workflows/TerraformGCP.yml'
+    branches:
+      - main
+  workflow_dispatch:
 
 env:
   GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
@@ -93,8 +93,13 @@ jobs:
     - name: Get kubeconfig 
       run: gcloud container clusters get-credentials $CLUSTER_NAME --region=$REGION --project=${{ secrets.GCP_PROJECT_ID }}
 
-    - name: Apply Kubernetes manifest
-      run: kubectl apply -f Deploy.yml
+    - name: Install Tekton
+      env:
+        DOCKER_USERNAME : ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD : ${{ secrets.DOCKER_PASSWORD }}
+        # TOKEN_TEKTON : ${{ secrets.TOKEN_TEKTON }}
+        SCRIPT_DIR: ${{ github.workspace }}/terraform-azure/scripts
+      run: bash  $SCRIPT_DIR/install-tekton.sh
 
     - name: Wait for 120 seconds()
       run: sleep 120s
