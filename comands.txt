@@ -1,0 +1,1 @@
+gcloud container clusters get-credentials maxsprout-clusterk8s --region=us-central1 --project=itspoutproject  - GKE cli
