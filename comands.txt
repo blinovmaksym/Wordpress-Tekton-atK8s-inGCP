@@ -35,3 +35,4 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 
 
 kubectl exec -it mysql-77f9746947-qr2j9 -- mysql -u root -p1234
+gcloud components install gke-gcloud-auth-plugin
