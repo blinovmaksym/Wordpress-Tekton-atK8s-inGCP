@@ -13,7 +13,7 @@ resource "google_compute_network" "vpc_network" {
 resource "google_container_cluster" "k8s_cluster" {
   name               = "${var.def_name}-clusterk8s"
   location           = var.region_prj
-  initial_node_count = 3
+  initial_node_count = 2
 
   network            = google_compute_network.vpc_network.name
   subnetwork         = google_compute_subnetwork.vpc_subnetwork.name
