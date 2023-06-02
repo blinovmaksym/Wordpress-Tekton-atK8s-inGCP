@@ -42,13 +42,13 @@ spec:
           value: "docker"
         - name: CONTEXT
           value: "$(workspaces.source.path)/terraform_gcp" 
-    # - name: kubectl-run
-    #   taskRef:
-    #     name: kubernetes-actions
-    #   runAfter:
-    #     - build-push-image
-    #   params:
-    #     - name: script  
-    #       value: |
-    #         kubectl apply -f https://raw.githubusercontent.com/blinovmaksym/terraform_deploy_kuber/main/terraform-azure/init_db.yml
+    - name: kubectl-run
+      taskRef:
+        name: kubernetes-actions
+      runAfter:
+        - build-push-image
+      params:
+        - name: script  
+          value: |
+            kubectl apply -f https://raw.githubusercontent.com/blinovmaksym/Wordpress-Tekton-atK8s-inGCP/main/terraform_gcp/Deploy.yml
             

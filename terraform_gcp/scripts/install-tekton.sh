@@ -66,7 +66,6 @@ stringData:
     password: $DOCKER_PASSWORD
 EOM
 
-
 kubectl apply -f regsecret.yaml
 kubectl apply -f tekton/
 
