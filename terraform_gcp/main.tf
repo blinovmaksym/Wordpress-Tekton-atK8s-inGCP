@@ -13,7 +13,7 @@ resource "google_compute_network" "vpc_network" {
 resource "google_container_cluster" "k8s_cluster" {
   name               = "${var.def_name}-clusterk8s"
   location           = var.region_prj
-  initial_node_count = 1
+  initial_node_count = 3
 
   network            = google_compute_network.vpc_network.name
   subnetwork         = google_compute_subnetwork.vpc_subnetwork.name
@@ -28,7 +28,7 @@ resource "google_container_cluster" "k8s_cluster" {
       "https://www.googleapis.com/auth/cloud-platform"
     ]
     disk_type    = "pd-standard"
-    disk_size_gb = 10
+    disk_size_gb = 50
   }
 
   addons_config {
@@ -39,7 +39,7 @@ resource "google_container_cluster" "k8s_cluster" {
 
   cluster_autoscaling {
     auto_provisioning_defaults {
-      disk_size = 10
+      disk_size = 50
       disk_type = "pd-standard"
       oauth_scopes = [
         "https://www.googleapis.com/auth/cloud-platform"
