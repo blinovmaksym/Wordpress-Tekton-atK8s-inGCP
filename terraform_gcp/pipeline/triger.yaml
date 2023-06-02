@@ -43,7 +43,7 @@ spec:
                   - ReadWriteOnce
                 resources:
                   requests:
-                    storage: 10Gi   
+                    storage: 2Gi   
 ---
 apiVersion: triggers.tekton.dev/v1beta1
 kind: EventListener
@@ -61,8 +61,7 @@ spec:
           params:
           - name: "pipeline"
             value:
-              secretName: github-trigger-secret
-              secretKey: secretToken
+              secretName: regsecret
           - name: "eventTypes"
             value: ["push"]
           - name: "branches"

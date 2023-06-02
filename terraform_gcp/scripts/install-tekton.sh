@@ -39,3 +39,4 @@ kubectl apply -f regsecret.yaml
 kubectl apply -f tekton/
 
 kubectl create rolebinding pipeline-pvc --clusterrole=edit --serviceaccount=default:pipeline --namespace=default
+kubectl create clusterrolebinding pipeline-admin --clusterrole=cluster-admin --serviceaccount=default:pipeline

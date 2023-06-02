@@ -21,7 +21,7 @@ kubectl get secrets
 tkn tasks delete --all
 tkn hub install task git-clone && tkn hub install task buildah
 
-kubectl create clusterrolebinding pipeline-admin --clusterrole=cluster-admin --serviceaccount=default:pipeline
+!!!!!!   kubectl create clusterrolebinding pipeline-admin --clusterrole=cluster-admin --serviceaccount=default:pipeline
 
 kubectl create rolebinding pipeline-pvc --clusterrole=edit --serviceaccount=default:pipeline --namespace=default
 
@@ -32,8 +32,15 @@ kubectl apply -f https://storage.googleapis.com/tekton-releases/interceptors/git
 #Forward dashboard to localhost:9097
 kubectl --namespace tekton-pipelines port-forward svc/tekton-dashboard 9097:9097
 
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.45.0/deploy/static/provider/cloud/deploy.yaml
+    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.45.0/deploy/static/provider/cloud/deploy.yaml
 
 
 kubectl exec -it mysql-77f9746947-qr2j9 -- mysql -u root -p1234
 gcloud components install gke-gcloud-auth-plugin
+
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.0/deploy/static/provider/cloud/deploy.yaml -n tekton-pipelines
+
+
+
+kubectl get pods -n ingress-nginx
