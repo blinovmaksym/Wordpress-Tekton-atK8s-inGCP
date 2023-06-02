@@ -23,6 +23,7 @@ tkn hub install task git-clone && tkn hub install task buildah
 
 kubectl create clusterrolebinding pipeline-admin --clusterrole=cluster-admin --serviceaccount=default:pipeline
 
+kubectl create rolebinding pipeline-pvc --clusterrole=edit --serviceaccount=default:pipeline --namespace=default
 
 
 kubectl apply -f https://storage.googleapis.com/tekton-releases/interceptors/github/latest/release.yaml
