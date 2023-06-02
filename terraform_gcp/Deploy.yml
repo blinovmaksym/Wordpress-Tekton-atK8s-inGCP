@@ -43,11 +43,6 @@ spec:
           image: mysql
           args:
             - "--default-authentication-plugin=mysql_native_password"
-          resources:
-            requests:
-              ephemeral-storage: "2Gi"
-            limits:
-              ephemeral-storage: "4Gi"
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: "wordsec"
@@ -98,11 +93,6 @@ spec:
       initContainers:
         - name: init
           image: dmonakh/init_db_wp:v1
-          resources:
-            requests:
-              ephemeral-storage: "2Gi"
-            limits:
-              ephemeral-storage: "4Gi"
           volumeMounts:
             - name: wordpress-persistent-storage
               mountPath: /var/www/html
@@ -120,11 +110,6 @@ spec:
               value: "root"
             - name: WORDPRESS_DB_PASSWORD
               value: "wordsec"
-          resources:
-            requests:
-              ephemeral-storage: "2Gi"
-            limits:
-              ephemeral-storage: "4Gi"   
           ports:
             - containerPort: 80
           volumeMounts:
